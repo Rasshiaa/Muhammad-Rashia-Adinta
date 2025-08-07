@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="stylesheet" href="css.css">
+<link rel="stylesheet" href="java.js">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Barcelona Form</title></head>
+<body>
+<h2>Daftar Member Klub Barcelona</h2>
+<form id="registerform">
+<input type="text" id="nama" placeholder="Nama" required>
+<input type="email" id="email" placeholder="Email" required>
+<input type="password" id="password" placeholder="Password" required>
+<input type="number" id="nomor" placeholder="No HP" required>
+<input type="date" id="tanggal" required>
+<div class="gender">
+<label><input type="radio" name="gender" value="Laki-laki" required> Laki-laki</label>
+<label><input type="radio" name="gender" value="Perempuan"> Perempuan</label>
+</div>
+<div class="terms">
+<input type="checkbox" id="agree" required>
+<label for="agree">Saya menyetujui <a id="openModal">Syarat dan Ketentuan</a></label>
+</div>
+<button type="submit">Get Started</button>
+</form>
+<table id="data_table">
+<thead><tr><th>Nama</th><th>Email</th><th>Tanggal</th><th>Gender</th><th>No HP</th></tr></thead>
+<tbody></tbody>
+</table>
+<div id="termsModal" class="modal">
+<div class="modal-content">
+<span class="close" id="closeModal">&times;</span>
+<h3>Syarat dan Ketentuan Klub Sepak Bola</h3>
+<p><b>1.</b> Member menjaga nama baik klub di mana pun berada.</p>
+<p><b>2.</b> Usia minimal 13 tahun dan bersedia taat aturan.</p>
+<p><b>3.</b> Data harus benar dan dapat dipertanggungjawabkan.</p>
+<p><b>4.</b> Dilarang menyalahgunakan keanggotaan untuk hal negatif.</p>
+<p><b>5.</b> Klub berhak mengubah peraturan kapan saja.</p>
+<p><b>6.</b> Member bisa keluar kapan saja dan data akan dihapus.</p>
+</div>
+</div>
+</body>
+</html>

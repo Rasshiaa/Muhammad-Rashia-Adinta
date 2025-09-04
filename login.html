@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Halaman Login</title>
+</head>
+<style>
+    /* style.css */
+
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(circle at center, #0d1117 0%, #000 100%);
+    font-family: 'Orbitron', sans-serif;
+    color: white;
+    overflow: hidden;
+}
+
+/* Add a glowing grid effect */
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        linear-gradient(#0ff2 1px, transparent 1px),
+        linear-gradient(90deg, #0ff2 1px, transparent 1px);
+    background-size: 40px 40px;
+    z-index: 0;
+    animation: gridMove 6s linear infinite;
+}
+
+@keyframes gridMove {
+    from { background-position: 0 0, 0 0; }
+    to { background-position: 40px 40px, 40px 40px; }
+}
+
+form {
+    position: relative;
+    z-index: 1;
+    background: rgba(0, 0, 50, 0.85);
+    padding: 35px;
+    border-radius: 20px;
+    box-shadow: 0 0 25px #00f6ff, 0 0 50px #0077ff;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    width: 320px;
+    text-align: center;
+    animation: popIn 0.8s ease forwards;
+    transform: scale(0.8);
+    opacity: 0;
+}
+
+@keyframes popIn {
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+h1 {
+    font-size: 28px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #00f6ff;
+    text-shadow: 0 0 10px #00f6ff, 0 0 20px #0077ff;
+    margin-bottom: 10px;
+}
+
+input {
+    padding: 12px;
+    border: 2px solid #00f6ff;
+    border-radius: 8px;
+    background: #000;
+    color: #00f6ff;
+    font-size: 14px;
+    outline: none;
+    transition: 0.3s ease;
+}
+
+input:focus {
+    box-shadow: 0 0 10px #00f6ff, 0 0 20px #0077ff;
+    border-color: #0077ff;
+}
+
+button {
+    background: linear-gradient(90deg, #0077ff, #00f6ff);
+    border: none;
+    padding: 14px;
+    border-radius: 10px;
+    color: black;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 0 10px #00f6ff, 0 0 20px #0077ff;
+}
+
+button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px #00f6ff, 0 0 30px #0077ff;
+}
+
+.alert-box {
+    position: fixed;
+    top: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(90deg, #0077ff, #00f6ff);
+    color: black;
+    font-weight: bold;
+    padding: 15px 25px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px #00f6ff, 0 0 30px #0077ff;
+    font-family: 'Orbitron', sans-serif;
+    text-align: center;
+    z-index: 999;
+    opacity: 0;
+    animation: slideDown 0.6s ease forwards;
+}
+
+@keyframes slideDown {
+    0% {
+        top: -100px;
+        opacity: 0;
+    }
+    50% {
+        top: 40px;
+        opacity: 1;
+    }
+    100% {
+        top: 30px;
+        opacity: 1;
+    }
+}
+
+.alert-box.hide {
+    animation: slideUp 0.6s ease forwards;
+}
+
+@keyframes slideUp {
+    0% {
+        top: 30px;
+        opacity: 1;
+    }
+    100% {
+        top: -100px;
+        opacity: 0;
+    }
+}
+/* Base alert box style */
+.alert-box {
+    position: fixed;
+    top: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-weight: bold;
+    padding: 15px 25px;
+    border-radius: 10px;
+    font-family: 'Orbitron', sans-serif;
+    text-align: center;
+    z-index: 999;
+    opacity: 0;
+    animation: slideDown 0.6s ease forwards;
+    box-shadow: 0 0 15px #00f6ff, 0 0 30px #0077ff;
+}
+
+/* Success and Error Variants */
+.alert-box.success {
+    background: linear-gradient(90deg, #00ff99, #00cc66);
+    color: black;
+    box-shadow: 0 0 15px #00ff99, 0 0 30px #00cc66;
+}
+
+.alert-box.error {
+    background: linear-gradient(90deg, #ff4444, #cc0000);
+    color: white;
+    box-shadow: 0 0 15px #ff4444, 0 0 30px #cc0000;
+}
+
+@keyframes slideDown {
+    0% {
+        top: -100px;
+        opacity: 0;
+    }
+    50% {
+        top: 40px;
+        opacity: 1;
+    }
+    100% {
+        top: 30px;
+        opacity: 1;
+    }
+}
+
+.alert-box.hide {
+    animation: slideUp 0.6s ease forwards;
+}
+
+@keyframes slideUp {
+    0% {
+        top: 30px;
+        opacity: 1;
+    }
+    100% {
+        top: -100px;
+        opacity: 0;
+    }
+}
+</style>
+<body>
+    <form id="LoginForm">
+        <h1>login bre</h1>
+        <input required type="email" name="LoginEmail" id="LoginEmail"
+        placeholder="masukin email jing">
+        <input required type="password" name="LoginPassword" id="LoginPassword"
+        placeholder="nah kalo ini password"><button type="submit">kelar</button>
+    </form>
+<script>
+document.getElementById("LoginForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const loginEmail = document.getElementById("LoginEmail").value;
+    const loginPassword = document.getElementById("LoginPassword").value;
+
+    const storedUser = JSON.parse(localStorage.getItem(loginEmail));
+
+    if (storedUser && storedUser.password === loginPassword) {
+        // ✅ SUCCESS ALERT
+        showCustomAlert("makasih uhda daftar nyuk", "success");
+    } else {
+        // ❌ ERROR ALERT
+        showCustomAlert("lu salah email sama password nyuk", "error");
+    }
+});
+
+function showCustomAlert(message, type) {
+    // Create alert element
+    const alertBox = document.createElement("div");
+    alertBox.className = `alert-box ${type}`;
+    alertBox.textContent = message;
+    document.body.appendChild(alertBox);
+
+    // Auto-hide after 3 seconds
+    setTimeout(() => {
+        alertBox.classList.add("hide");
+        setTimeout(() => alertBox.remove(), 600);
+    }, 3000);
+}
+</script>
+
+</script>
+
+</body>
+</html>
